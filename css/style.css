@@ -1,0 +1,81 @@
+
+
+.nav .nav-item .nav-link{
+    color: rgb(193, 140, 242);
+    font-size: 25px;
+}
+
+.carrusel{
+    background-color:  rgb(193, 140, 242);
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+h1{
+    color: rgb(193, 140, 242);
+    font-size: medium;
+    text-align: center;
+}
+
+.container{
+    color: rgb(193, 140, 242);
+    font-size: medium;
+    font-weight: bolder; 
+    
+}
+
+
+#comprar{
+    width: 80%;
+    height: auto;
+    display: flex;
+    padding-left: 25%;
+
+}
+
+
+.img{
+    width: 10%;
+    height: auto;
+}
+ 
+
+
+.sillonesP{
+    color: rgb(193, 140, 242);
+    font-size: medium;
+    text-align: center;
+}
+
+/*footer*/
+#pieDePagina{
+    background-color:  rgb(193, 140, 242);
+    height: 250px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+h3{
+    color: oldlace; 
+    text-align: left;
+    padding-left: 50px;
+    padding-top: 30px;
+
+}
+
+
+.footerLetra{
+    color: oldlace; 
+    text-align: left;
+    padding-left: 50px;
+}
+
+.social i{
+    color: oldlace;
+    font-size: 30px;
+    display: flex;
+    justify-content: space-around;
+    row-gap: 2px;
+}
+
