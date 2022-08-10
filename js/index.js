@@ -47,31 +47,59 @@ switch (color){
 
    const IVA = 1.21
    const sillones = ["Negro","Blanco","Gris", "Rosa"]
+
+   class Producto {
+    constructor(id, nombre, importe){
+        this.id = id
+        this.nombre = nombre
+        this.importe = importe
+    }
+    precioFinal() {
+        return parseFloat((this.importe * IVA).toFixed(2))
+    }
+}
    
-   const productos =[]
+   const productos = []
    const precio = []
    
    function generadorAutomatico() {
-       productos.push(new Producto(1234, "Sillon 3 cuerpos, Violeta", 90000))
-       productos.push(new Producto(2345, "Sillon 2 cuerpos, Gris", 55000))
-       productos.push(new Producto(3456, "Sillon L", 120999))
-       productos.push(new Producto(4567, "Sillon Blanco", 120000))
-       productos.push(new Producto(5678, "Sillon un cuerpo Flor", 45000))
+       productos.push(new Producto (2934, "SILLON 3 CUERPOS VIOLETA", 90000))
+       productos.push(new Producto (2345, "SILLON 2 CUERPOS GRIS", 55000))
+       productos.push(new Producto (3456, "SILLON L", 120999))
+       productos.push(new Producto (4567, "SILLON BLANCO", 120000))
+       productos.push(new Producto (5678, "SILLON UN CUERPO", 45000))
        }
-       function recorrerElementos() {
-          for (let producto of productos){
-           console.table(producto)
-          }
+    generadorAutomatico()
+    
+      
+  
+   function recorrerElementos() {
+          for (let producto of productos){console.table(producto)}
        }
    
-       class Producto {
-           constructor(id, nombre, importe){
-               this.id = id
-               this.nombre = nombre
-               this.importe = importe
-           }
-           precioFinal() {
-               return parseFloat((this.importe * IVA).toFixed(2))
-           }
-       }
-     
+      
+    function filtrarProducto() {
+        let prod = prompt("Ingrese el termino a buscar:")
+        const resultado = productos.filter(elemento => elemento.nombre.includes(prod.toUpperCase()))
+        console.table(resultado)
+    }
+  
+    
+    function buscarProductosNombre() {
+        let prod = prompt("Ingrese el producto a buscar:")
+            prod = prod.toUpperCase()
+        const resultado = productos.find(elemento => elemento.nombre === prod)
+        console.table(resultado)
+    }
+
+    function proyeccionIncremento (porcentaje) {
+        let resultado = productos.map(producto => {
+            return {
+                nombre: producto.nombre,
+                importe: producto.importe,
+                proyeccion: producto.importe * 1.30
+            }
+        })
+        console.table(resultado)
+
+    }
