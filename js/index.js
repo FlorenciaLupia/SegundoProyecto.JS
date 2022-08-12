@@ -103,3 +103,18 @@ switch (color){
         console.table(resultado)
 
     }
+
+    function cargarProducto(){
+        const sillones = document.getElementById("sillones")
+        debugger
+        productos.forEach(producto => {
+        sillones.innerHTML += `<div>
+                                <figure>
+                                <img src="./img/foto1.JPG">
+                                </figure>
+                                <h3>${producto.id}</h3>
+                                <h3>${producto.nombre}</h3>
+                                <p>${producto.importe}</p>
+                              </div `
+        })
+    }
