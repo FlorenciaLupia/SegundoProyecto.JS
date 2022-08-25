@@ -49,10 +49,11 @@ switch (color){
    const sillones = ["Negro","Blanco","Gris", "Rosa"]
 
    class Producto {
-    constructor(id, nombre, importe){
+    constructor(id,nombre, importe, imagen){
         this.id = id
         this.nombre = nombre
         this.importe = importe
+        this.imagen = imagen
     }
     precioFinal() {
         return parseFloat((this.importe * IVA).toFixed(2))
@@ -63,11 +64,12 @@ switch (color){
    const precio = []
    
    function generadorAutomatico() {
-       productos.push(new Producto (2934, "SILLON 3 CUERPOS VIOLETA", 90000))
-       productos.push(new Producto (2345, "SILLON 2 CUERPOS GRIS", 55000))
-       productos.push(new Producto (3456, "SILLON L", 120999))
-       productos.push(new Producto (4567, "SILLON BLANCO", 120000))
-       productos.push(new Producto (5678, "SILLON UN CUERPO", 45000))
+       productos.push(new Producto (1,"SILLON VIOLETA", 90000, "./img/sillon violeta.jpg"))
+       productos.push(new Producto (2,"SILLON L", 180000, "./img/sillon en l.jpg"))
+       productos.push(new Producto (3,"SILLON BIG L", 55000, "./img/sillon en l grande.jpg"))
+       productos.push(new Producto (4,"SILLON BLANCO", 120000, "./img/sillon 3 cuerpos.jpg"))
+       productos.push(new Producto (5,"SILLON UN CUERPO", 85000, "./img/sillon individual.jpg"))
+       productos.push(new Producto (6,"SILLAS ROMANAS", 45000, "./img/sillas colores.jpg"))
        }
     generadorAutomatico()
     
@@ -104,17 +106,5 @@ switch (color){
 
     }
 
-    function cargarProducto(){
-        const sillones = document.getElementById("sillones")
-        debugger
-        productos.forEach(producto => {
-        sillones.innerHTML += `<div>
-                                <figure>
-                                <img src="./img/foto1.JPG">
-                                </figure>
-                                <h3>${producto.id}</h3>
-                                <h3>${producto.nombre}</h3>
-                                <p>${producto.importe}</p>
-                              </div `
-        })
-    }
+   
+   
