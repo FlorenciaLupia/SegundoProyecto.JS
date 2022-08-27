@@ -29,14 +29,10 @@ function agregarFuncionalidad(){
 
 function agregarAlCarrito(producto){
     let existe = carrito.some((productoSome) => productoSome.id === producto.id);
-    if (existe === false){
-        producto.cantidad = 1;
-        carrito.push(producto);
-    } else{
-       let productoFind = carrito.find(productoFind => productoFind.id === producto.id);
-       productoFind.cantidad ++;
-    }
-   
+    let productoFind = carrito.find(productoFind => productoFind.id === producto.id);
+
+    existe === false ?  (producto.cantidad = 1, carrito.push(producto)) : (productoFind.cantidad ++);
+
     console.log(carrito);
     entregarCarrito() 
 }
@@ -47,8 +43,8 @@ function entregarCarrito() {
     carrito.forEach((producto) => {
         carritoDiv.innerHTML +=`<div class="row" >
                                    <p class="col tituloProducto">${producto.nombre}</p>
-                                   <p class="col importe">Cantidad${producto.cantidad}</p>
-                                   <p class="col precio">Precio$${producto.cantidad * producto.importe}</p>
+                                   <p class="col importe">${producto.cantidad}</p>
+                                   <p class="col precio">$${producto.cantidad * producto.importe}</p>
                                    <button class="col btn-borrar${producto.id}">Borrar</button>
                                 </div `;
     });
@@ -70,4 +66,6 @@ function borrarProducto(){
 }
 cargarProducto();
 entregarCarrito();
+
+
 
