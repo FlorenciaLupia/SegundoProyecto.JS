@@ -6,8 +6,12 @@ btnComprar.forEach(element =>  {
   })
 })
 
-
-
-
-
-
+const btnFinalizarCompra = document.querySelector(".finalizar")
+  function finalizarCompra() {
+      btnFinalizarCompra.addEventListener("click", () => {
+       alert(`Muchas gracias por tu compra`)
+       console.log(btnFinalizarCompra,"elboton")
+      })
+    }
+   
+    finalizarCompra()

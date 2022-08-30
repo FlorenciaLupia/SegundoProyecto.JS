@@ -1,5 +1,7 @@
 const containerDiv = document.querySelector(".containerDiv");
 const carritoDiv = document.querySelector(".carritoDiv");
+const totalProducto = document.querySelector(".totalProducto")
+const formulario = document.querySelector(".formulario")
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -39,6 +41,8 @@ function agregarAlCarrito(producto){
 
 function entregarCarrito() {
     carritoDiv.innerHTML="";
+    let total = 0;
+    
 
     carrito.forEach((producto) => {
         carritoDiv.innerHTML +=`<div class="row" >
@@ -46,8 +50,26 @@ function entregarCarrito() {
                                    <p class="col importe">${producto.cantidad}</p>
                                    <p class="col precio">$${producto.cantidad * producto.importe}</p>
                                    <button class="col btn-borrar${producto.id}">Borrar</button>
-                                </div `;
-    });
+                                </div> `;
+        totalProducto.innerHTML = `<div class="totalProducto">
+                                     <p>Total:$${total += parseInt(producto.importe) * parseInt(producto.cantidad)}</p>
+                                   </div>`  
+        formulario.innerHTML =   ` <div>
+                                    <p>NOMBRE Y APELLIDO</p>
+                                    <div><input type="text" name="name"></div>
+                                    </div>
+                                    <div>
+                                    <p>EMAIL</p>
+                                    <div><input type="text" name="email"></div>
+                                    </div>
+                                    <div>
+                                    <p>DIRECCION</p>
+                                    <div><input type="text" name="adress"></div>
+                                    </div>
+                                    <div>
+                                    <button class="finalizar">FINALIZAR PEDIDO</button>
+                                 </div> `                                           
+    }); 
     localStorage.setItem("carrito", JSON.stringify(carrito));
     borrarProducto()
 }
