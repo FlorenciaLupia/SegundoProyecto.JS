@@ -6,12 +6,18 @@ btnComprar.forEach(element =>  {
   })
 })
 
-const btnFinalizarCompra = document.querySelector(".finalizar")
-  function finalizarCompra() {
-      btnFinalizarCompra.addEventListener("click", () => {
-       alert(`Muchas gracias por tu compra`)
-       console.log(btnFinalizarCompra,"elboton")
-      })
-    }
-   
-    finalizarCompra()
+const toastSwal = (mensaje, icono) => {
+  Swal.fire({
+    //toast: true,
+    title: "Gracias por tu compra!",
+    text: mensaje,
+    imageUrl: `img/logodos.jpg`,
+    imageAlt:  `imagen`,
+    showConfirmButton: false, 
+    timer: 4000,
+    //icon: icono,
+  })
+}
+
+
+
