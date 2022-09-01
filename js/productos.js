@@ -25,6 +25,19 @@ function agregarFuncionalidad(){
         .addEventListener("click", () => {
           console.log(producto);
           agregarAlCarrito(producto);
+            Toastify({
+                  text: "Añadido al carrito",
+                  duration: 3000,
+                  newWindow: true,
+                  close: true,
+                  gravity: "botton", 
+                  position: "right", 
+                  stopOnFocus: true,
+            style: {
+              background: "#ffc107",
+            },
+            onClick: function(){} 
+          }).showToast();
         });
     });
 }
