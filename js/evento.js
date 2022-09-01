@@ -6,18 +6,7 @@ btnComprar.forEach(element =>  {
   })
 })
 
-const toastSwal = (mensaje, icono) => {
-  Swal.fire({
-    //toast: true,
-    title: "Gracias por tu compra!",
-    text: mensaje,
-    imageUrl: `img/logodos.jpg`,
-    imageAlt:  `imagen`,
-    showConfirmButton: false, 
-    timer: 4000,
-    //icon: icono,
-  })
-}
+
 
 
 

@@ -72,6 +72,8 @@ switch (color){
        productos.push(new Producto (6,"SILLAS ROMANAS", 45000, "./img/sillas colores.jpg"))
        }
     generadorAutomatico()
+
+    let productosEnJson = () => 
     
       
   

@@ -95,6 +95,18 @@ function entregarCarrito() {
       btnFinalizarCompra.addEventListener("click", () => {
         toastSwal(`Su pedido entro correctamente. Te llegara toda la informacion por email`, `success`,`white`)
       })
+      const toastSwal = (mensaje, icono) => {
+        Swal.fire({
+          //toast: true,
+          title: "Gracias por tu compra!",
+          text: mensaje,
+          imageUrl: `img/logodos.jpg`,
+          imageAlt:  `imagen`,
+          showConfirmButton: false, 
+          timer: 4000,
+          //icon: icono,
+        })
+      }
 }
 
     function borrarProducto(){
