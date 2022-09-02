@@ -1,0 +1,38 @@
+[
+    {
+      "id": 1,
+      "nombre": "SILLON VIOLETA",
+      "importe": 90000,
+      "imagen": "./img/sillon violeta.jpg"
+    },
+    {
+      "id": 2,
+      "nombre": "SILLON L",
+      "importe": 180000,
+      "imagen": "./img/sillon en l.jpg"
+    },
+    {
+      "id": 3,
+      "nombre": "SILLON BIG L",
+      "importe": 55000,
+      "imagen": "./img/sillon en l grande.jpg"
+    },
+    {
+      "id": 4,
+      "nombre": "SILLON BLANCO",
+      "importe": 120000,
+      "imagen": "./img/sillon 3 cuerpos.jpg"
+    },
+    {
+      "id": 5,
+      "nombre": "SILLON UN CUERPO",
+      "importe": 85000,
+      "imagen": "./img/sillon individual.jpg"
+    },
+    {
+      "id": 6,
+      "nombre": "SILLAS ROMANAS",
+      "importe": 45000,
+      "imagen": "./img/sillas colores.jpg"
+    }
+  ]

@@ -5,25 +5,32 @@ const formulario = document.querySelector(".formulario")
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-function cargarProducto(){
-    productos.forEach((producto) => {
+
+async function cargarProducto(){
+  await fetch('js/productosfetch.json')
+  .then((response) => response.json())
+  .then(data => 
+    data.forEach((producto) => {
     containerDiv.innerHTML += `<div>
                                 <h3 class="tituloProducto">${producto.nombre}</h3>
                                 <p class="importe">$${producto.importe}</p>
                                 <img src="${producto.imagen}" class="img-fluid imagenes">
                                 <button class="btnAgregar" id="btnAgregar${producto.id}">Comprar</button>
-                              </div `;
-    });
-
-    agregarFuncionalidad ()
+                               </div `;
+  })  
+    
+  );
+  agregarFuncionalidad ()
 }
 
-function agregarFuncionalidad(){
-    productos.forEach((producto) => {
+async function agregarFuncionalidad(){
+  await fetch('js/productosfetch.json')
+  .then((response) => response.json())
+  .then(data => 
+    data.forEach((producto) => {
         document
         .querySelector(`#btnAgregar${producto.id}`)
         .addEventListener("click", () => {
-          console.log(producto);
           agregarAlCarrito(producto);
             Toastify({
                   text: "Añadido al carrito",
@@ -34,12 +41,13 @@ function agregarFuncionalidad(){
                   position: "right", 
                   stopOnFocus: true,
             style: {
-              background: "#ffc107",
+              background: "#6f42c1",
             },
             onClick: function(){} 
           }).showToast();
         });
-    });
+    })
+  );
 }
 
 function agregarAlCarrito(producto){
@@ -48,7 +56,6 @@ function agregarAlCarrito(producto){
 
     existe === false ?  (producto.cantidad = 1, carrito.push(producto)) : (productoFind.cantidad ++);
 
-    console.log(carrito);
     entregarCarrito() 
 }
 
@@ -61,8 +68,7 @@ function entregarCarrito() {
                           </div> `;
     let total = 0;
 
-        console.log(carrito, 'carrito')
-        if (carrito.length > 0) {console.log('hay productos en el carrito', carrito.length)
+        if (carrito.length > 0) {
         carrito.forEach((producto) => {
         carritoDiv.innerHTML +=`
         
@@ -94,7 +100,7 @@ function entregarCarrito() {
                                     <button class="finalizar">FINALIZAR PEDIDO</button>
                                  </div> `                                           
     }); 
-    } else {console.log('no hay nada en el carrito')
+    } else {
     carritoDiv.innerHTML = ``
     totalProducto.innerHTML = ``
     formulario.innerHTML = ``
@@ -105,9 +111,10 @@ function entregarCarrito() {
 
 
     const btnFinalizarCompra = document.querySelector(".finalizar")
-      btnFinalizarCompra.addEventListener("click", () => {
-        toastSwal(`Su pedido entro correctamente. Te llegara toda la informacion por email`, `success`,`white`)
-      })
+    if (btnFinalizarCompra) {btnFinalizarCompra.addEventListener("click", () => {
+      toastSwal(`Su pedido entro correctamente. Te llegara toda la informacion por email`, `success`,`white`)
+    })}
+
       const toastSwal = (mensaje, icono) => {
         Swal.fire({
           //toast: true,
