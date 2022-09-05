@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="js/index.js"></script>
     <script defer src="js/productos.js"></script>
-    <script defer src="js/evento.js"></script>
     <link rel="stylesheet" href="./css/style.css">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
@@ -20,25 +18,24 @@
 
 <body>
     <header>
+      <div class="container">
       <nav class="navbar">
-        <div class="container">
           <a class="navbar-brand" href="./index.html">
             <img src="./img/logo.PNG" alt="" width="130" height="120" class="d-inline-block align-text-top">
           </a>
-        </div>
+        <ul class="nav justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#sillones">Sillones</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#comprar">Comprar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#pieDePagina">Contacto</a>
+          </li>
+        </ul> 
       </nav>
-      <ul class="nav justify-content-center">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#sillones">Sillones</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#comprar">Comprar</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#pieDePagina">Contacto</a>
-        </li>
-      </ul> 
-       
+    </div>
     </header>
 
     <main>
@@ -62,14 +59,13 @@
             <h1>Sillones</h1>
             <p class="sillonesP">Tenemos los sillones mas coloridos y divertidos del mercado</p>
             <div class="containerDiv"></div>
-        </section>
-        <section>
+        
             
             <div class="carritoDiv"></div>
             <div class="totalProducto"></div>
             <div class="formulario"></div>
           
-          </section>
+        </section>
 
         <section id="comprar">
 

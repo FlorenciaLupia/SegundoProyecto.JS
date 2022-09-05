@@ -1,33 +1,40 @@
-const containerDiv = document.querySelector(".containerDiv");
-const carritoDiv = document.querySelector(".carritoDiv");
+let productos = []
+let contenidoHTML = ""
+
+const containerDiv = document.querySelector(".containerDiv")
+const carritoDiv = document.querySelector(".carritoDiv")
 const totalProducto = document.querySelector(".totalProducto")
 const formulario = document.querySelector(".formulario")
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-
-async function cargarProducto(){
-  await fetch('js/productosfetch.json')
-  .then((response) => response.json())
-  .then(data => 
-    data.forEach((producto) => {
-    containerDiv.innerHTML += `<div>
+const cargarPorducto = (producto) => {
+        return        `<div>
                                 <h3 class="tituloProducto">${producto.nombre}</h3>
                                 <p class="importe">$${producto.importe}</p>
                                 <img src="${producto.imagen}" class="img-fluid imagenes">
                                 <button class="btnAgregar" id="btnAgregar${producto.id}">Comprar</button>
-                               </div `;
-  })  
-    
-  );
-  agregarFuncionalidad ()
+                               </div `
 }
 
-async function agregarFuncionalidad(){
+const printProductos = async () =>{
   await fetch('js/productosfetch.json')
-  .then((response) => response.json())
-  .then(data => 
-    data.forEach((producto) => {
+        .then((response) => response.json())
+        .then((prods) => {
+          productos = prods
+          productos.forEach(producto => {
+            contenidoHTML +=  cargarPorducto(producto)
+          });
+          containerDiv.innerHTML = contenidoHTML
+        });
+
+        agregarFuncionalidad()
+}
+printProductos()
+
+
+function agregarFuncionalidad(){
+    productos.forEach((producto) => {
         document
         .querySelector(`#btnAgregar${producto.id}`)
         .addEventListener("click", () => {
@@ -47,8 +54,9 @@ async function agregarFuncionalidad(){
           }).showToast();
         });
     })
-  );
 }
+
+ 
 
 function agregarAlCarrito(producto){
     let existe = carrito.some((productoSome) => productoSome.id === producto.id);
@@ -141,8 +149,7 @@ function entregarCarrito() {
     });
    
 }
-   cargarProducto();
    entregarCarrito();
-
+ 
 
 
