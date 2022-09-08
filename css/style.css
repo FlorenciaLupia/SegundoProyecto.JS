@@ -8,7 +8,9 @@
 .nav .nav-item .nav-link{
     color: rgb(193, 140, 242);
     font-size:20px;
+    font-style: italic;
 }
+
 
 /*Carrusel*/
 .carrusel{
@@ -20,6 +22,7 @@
 }
 
 /*Sec Sillones*/
+
 h1{
     color: rgb(193, 140, 242);
     font-size: medium;
@@ -30,13 +33,13 @@ h1{
     color: rgb(193, 140, 242);
     font-size: medium;
     text-align: center;
+    font-style: italic;
 }
 
-.importe, .precio{
+.importe{
     color: rgb(193, 140, 242);
-    font-size: medium;
     text-align: center;
-    
+    font-size: larger;   
 }
 
 .tituloProducto{
@@ -47,22 +50,21 @@ h1{
 }
 
 .imagenes{
-    width: 250px;
-    height: 250px;
-    border-radius: 8%;
-    margin-left: 10%;
+    width: 300px;
+    height: 300px;
 }
 
-.btnAgregar{
+.Agregar{
     background-color: blueviolet;
     color: cornsilk;
     border-color: blueviolet;
-    display: flex;
-    margin-left: 15%;
-    margin-top: 3%;
+    font-size: larger;
+    margin-left: 47%;
+    margin-top: 1%;
+   
 }
 
-.btnAgregar:hover{
+.Agregar:hover{
     background-color: orchid;
  }
 
@@ -76,6 +78,7 @@ h1{
     font-size: medium;
     font-weight: bolder; 
     margin-bottom: 8%;
+
 }
 
 .img{
@@ -150,7 +153,7 @@ h3{
 
 .formulario{
     color: rgb(147, 92, 197);
-    display: flex;
+    display: grid;
     justify-content: center;
     gap: 4%;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -174,3 +177,4 @@ h3{
 .finalizar:hover{
     background-color:rgb(233, 70, 233);
  }
+

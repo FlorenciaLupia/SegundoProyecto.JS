@@ -9,11 +9,11 @@ const formulario = document.querySelector(".formulario")
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const cargarPorducto = (producto) => {
-        return        `<div>
+        return                `<div>
                                 <h3 class="tituloProducto">${producto.nombre}</h3>
                                 <p class="importe">$${producto.importe}</p>
-                                <img src="${producto.imagen}" class="img-fluid imagenes">
-                                <button class="btnAgregar" id="btnAgregar${producto.id}">Comprar</button>
+                                <img src="${producto.imagen}" class="img-fluid imagenes rounded mx-auto d-block img-thumbnail">
+                                <button class="Agregar btnAgregar${producto.id}">Comprar</button>
                                </div `
 }
 
@@ -36,7 +36,7 @@ printProductos()
 function agregarFuncionalidad(){
     productos.forEach((producto) => {
         document
-        .querySelector(`#btnAgregar${producto.id}`)
+        .querySelector(`.btnAgregar${producto.id}`)
         .addEventListener("click", () => {
           agregarAlCarrito(producto);
             Toastify({
@@ -87,22 +87,22 @@ function entregarCarrito() {
                                    <button class="col Borrar btn-borrar${producto.id}">X</button>
                                 </div> `;
          
-         let calculoTotal = total += parseInt(producto.importe) * parseInt(producto.cantidad)
+        const calculoTotal = total += parseInt(producto.importe) * parseInt(producto.cantidad)
            
         totalProducto.innerHTML = `<div class="totalProducto">
                                      <p>Total:$${calculoTotal}</p>
                                    </div>`  
         formulario.innerHTML =   ` <div>
                                     <p>NOMBRE Y APELLIDO:</p>
-                                    <div><input type="text" name="name"></div>
+                                    <div><input type="text" name="name" value="Fer Luna"></div>
                                     </div>
                                     <div>
                                     <p>EMAIL:</p>
-                                    <div><input type="text" name="email"></div>
+                                    <div><input type="text" name="email" value="fernandoluna@hotmail.com"></div>
                                     </div>
                                     <div>
                                     <p>DIRECCION:</p>
-                                    <div><input type="text" name="adress"></div>
+                                    <div><input type="text" name="adress" value="Av.Santa Fe 1240, 3roE"></div>
                                     </div>
                                     <div>
                                     <button class="finalizar">FINALIZAR PEDIDO</button>
@@ -112,7 +112,7 @@ function entregarCarrito() {
     carritoDiv.innerHTML = ``
     totalProducto.innerHTML = ``
     formulario.innerHTML = ``
-}
+    }
     
     localStorage.setItem("carrito", JSON.stringify(carrito));
     borrarProducto()
@@ -121,21 +121,21 @@ function entregarCarrito() {
     const btnFinalizarCompra = document.querySelector(".finalizar")
     if (btnFinalizarCompra) {btnFinalizarCompra.addEventListener("click", () => {
       toastSwal(`Su pedido entro correctamente. Te llegara toda la informacion por email`, `success`,`white`)
+      carrito = []
+      entregarCarrito()
     })}
-
-      const toastSwal = (mensaje, icono) => {
+      const toastSwal = (mensaje) => {
         Swal.fire({
-          //toast: true,
           title: "Gracias por tu compra!",
           text: mensaje,
-          imageUrl: `img/logodos.jpg`,
+          imageUrl: `img/logo3.jpg`,
           imageAlt:  `imagen`,
           showConfirmButton: false, 
           timer: 4000,
-          //icon: icono,
         })
       }
-}
+    }
+   
 
     function borrarProducto(){
     carrito.forEach((producto) => {
@@ -146,10 +146,9 @@ function entregarCarrito() {
             (productoFilter) => productoFilter.id !== producto.id);
         entregarCarrito();
         });
-    });
-   
-}
-   entregarCarrito();
+    });  
+    }
+  
  
 
-
+  
