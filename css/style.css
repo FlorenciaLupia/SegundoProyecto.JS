@@ -68,6 +68,15 @@ h1{
     background-color: orchid;
  }
 
+.error{
+    text-align: center;
+    color: rgb(228, 39, 39);
+    font-size: larger;
+    font-style: oblique;
+    font-family:  Georgia, Times, 'Times New Roman', serif;
+}
+
+
 /*Sec Comprar*/
 #comprar{
     width: 100%;

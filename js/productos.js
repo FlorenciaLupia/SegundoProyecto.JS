@@ -17,6 +17,14 @@ const cargarPorducto = (producto) => {
                                </div `
 }
 
+const retornoError = () =>{
+  return ` <div class="error">
+              <h2>MANTENIMIENTO</h2>
+              <img src="img/imgError.png" alt="error">
+              <p>Disculpe las molestias</p>
+           </div>`
+}
+
 const printProductos = async () =>{
   await fetch('js/productosfetch.json')
         .then((response) => response.json())
@@ -26,7 +34,10 @@ const printProductos = async () =>{
             contenidoHTML +=  cargarPorducto(producto)
           });
           containerDiv.innerHTML = contenidoHTML
-        });
+          })
+          .catch(() => {
+          containerDiv.innerHTML = retornoError ()
+          })
 
         agregarFuncionalidad()
 }
