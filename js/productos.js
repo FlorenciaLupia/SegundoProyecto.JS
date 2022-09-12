@@ -1,6 +1,5 @@
 let productos = []
 let contenidoHTML = ""
-
 const containerDiv = document.querySelector(".containerDiv")
 const carritoDiv = document.querySelector(".carritoDiv")
 const totalProducto = document.querySelector(".totalProducto")
@@ -38,11 +37,9 @@ const printProductos = async () =>{
           .catch(() => {
           containerDiv.innerHTML = retornoError ()
           })
-
         agregarFuncionalidad()
 }
 printProductos()
-
 
 function agregarFuncionalidad(){
     productos.forEach((producto) => {
@@ -67,14 +64,10 @@ function agregarFuncionalidad(){
     })
 }
 
- 
-
 function agregarAlCarrito(producto){
     let existe = carrito.some((productoSome) => productoSome.id === producto.id);
     let productoFind = carrito.find(productoFind => productoFind.id === producto.id);
-
     existe === false ?  (producto.cantidad = 1, carrito.push(producto)) : (productoFind.cantidad ++);
-
     entregarCarrito() 
 }
 
@@ -89,9 +82,7 @@ function entregarCarrito() {
 
         if (carrito.length > 0) {
         carrito.forEach((producto) => {
-        carritoDiv.innerHTML +=`
-        
-                                <div class="row" >
+        carritoDiv.innerHTML +=`<div class="row" >
                                    <p class="col tituloProducto">${producto.nombre}</p>
                                    <p class="col importe">${producto.cantidad}</p>
                                    <p class="col precio">$${producto.cantidad * producto.importe}</p>
@@ -124,14 +115,12 @@ function entregarCarrito() {
     totalProducto.innerHTML = ``
     formulario.innerHTML = ``
     }
-    
     localStorage.setItem("carrito", JSON.stringify(carrito));
     borrarProducto()
 
-
     const btnFinalizarCompra = document.querySelector(".finalizar")
     if (btnFinalizarCompra) {btnFinalizarCompra.addEventListener("click", () => {
-      toastSwal(`Su pedido entro correctamente. Te llegara toda la informacion por email`, `success`,`white`)
+      toastSwal(`Su pedido entro correctamente. Te llegara toda la informacion para que realices el pago por email`, `success`,`white`)
       carrito = []
       entregarCarrito()
     })}
@@ -142,12 +131,11 @@ function entregarCarrito() {
           imageUrl: `img/logo3.jpg`,
           imageAlt:  `imagen`,
           showConfirmButton: false, 
-          timer: 4000,
+          timer: 4500,
         })
       }
     }
    
-
     function borrarProducto(){
     carrito.forEach((producto) => {
         document
