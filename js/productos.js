@@ -13,7 +13,7 @@ const cargarPorducto = (producto) => {
                                 <p class="importe">$${producto.importe}</p>
                                 <img src="${producto.imagen}" class="img-fluid imagenes rounded mx-auto d-block img-thumbnail">
                                 <button class="Agregar btnAgregar${producto.id}">Comprar</button>
-                               </div `
+                               </div> `
 }
 
 const retornoError = () =>{
@@ -96,18 +96,18 @@ function entregarCarrito() {
                                    </div>`  
         formulario.innerHTML =   ` <div>
                                     <p>NOMBRE Y APELLIDO:</p>
-                                    <div><input type="text" name="name" value="Fer Luna"></div>
+                                    <div><input type="text" name="name" value=""></div>
                                     </div>
                                     <div>
                                     <p>EMAIL:</p>
-                                    <div><input type="text" name="email" value="fernandoluna@hotmail.com"></div>
+                                    <div><input type="text" name="email" value=""></div>
                                     </div>
                                     <div>
                                     <p>DIRECCION:</p>
-                                    <div><input type="text" name="adress" value="Av.Santa Fe 1240, 3roE"></div>
+                                    <div><input type="text" name="adress" value=""></div>
                                     </div>
                                     <div>
-                                    <button class="finalizar">FINALIZAR PEDIDO</button>
+                                    <button class="finalizar">Enviar</button>
                                  </div> `                                           
     }); 
     } else {
